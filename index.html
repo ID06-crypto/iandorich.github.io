@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ian Dorich</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav>
+    <span class="nav-name">Ian Dorich</span>
+    <ul>
+      <li><a href="#current">Current</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>Ian Dorich</h1>
+        <p class="hero-subtitle">Data Science Student &amp; AI Researcher</p>
+        <p class="hero-bio">
+          BS candidate in Data Science at Boston University. I work at the intersection of
+          machine learning research, AI security, and information theory — with a focus on mechanistic interpretability,
+          reinforcement learning, and building things from scratch to understand them deeply.
+        </p>
+        <div class="hero-links">
+          <a href="https://github.com/ID06-crypto" target="_blank" rel="noopener">GitHub</a>
+          <a href="mailto:dorich2016@gmail.com">Email</a>
+        </div>
+      </div>
+      <img src="images/pfp.jpeg" alt="Ian Dorich" class="pfp" />
+    </div>
+  </section>
+
+  <!-- Currently Working On -->
+  <section id="current">
+    <h2>Currently Working On</h2>
+
+    <div class="card current-card">
+      <div class="card-header">
+        <div>
+          <h3>Loss Function Visualization &amp; Understanding</h3>
+          <span class="org">Collaboration with Prof. Lance Galletti — Boston University &amp; Red Hat Research</span>
+        </div>
+        <span class="date">2026 – Present</span>
+      </div>
+      <p>
+        Working with Professor Lance Galletti on a research project aimed at understanding and
+        visualizing the geometry of loss functions in neural networks. The goal is to build
+        intuition for how optimization landscapes shape model behavior during training.
+      </p>
+      <p>
+        The animation below shows the decision boundary evolving epoch by epoch as a neural
+        network learns to classify a two-circle dataset — illustrating how the loss surface
+        guides the model toward a solution.
+      </p>
+      <div class="current-gif-wrap">
+        <img src="images/loss-viz.gif" alt="Decision boundary evolving epoch by epoch" class="current-gif" />
+        <span class="gif-caption">Decision boundary over training epochs — two-circle classification</span>
+      </div>
+      <div class="tags">
+        <span>PyTorch</span><span>Loss Landscapes</span><span>Visualization</span><span>Neural Networks</span><span>Research</span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Experience -->
+  <section id="experience">
+    <h2>Experience</h2>
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <h3>AI Policy Fellowship Facilitator</h3>
+          <span class="org">BU AI Safety &amp; Alignment (BUAISA)</span>
+        </div>
+        <span class="date">2025 – 2026</span>
+      </div>
+      <ul>
+        <li>Leading a competitive fellowship exploring intersections of AI safety, governance, and public policy.</li>
+        <li>Developing curriculum for a reading group covering AI risk assessment, safety standards, corporate governance, compute governance, and international regulation. Previously participated as a fellow in Fall 2025.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <h3>CAMBRIA — ML Bootcamp for Research in RL, Interpretability &amp; Alignment</h3>
+          <span class="org">CBAI (Cambridge Boston Alignment Initiative)</span>
+        </div>
+        <span class="date">January 2026</span>
+      </div>
+      <ul>
+        <li>Participating in an ML course hosted at Harvard Square focused on research techniques for reinforcement learning and mechanistic interpretability.</li>
+        <li>Curriculum aligned with the ARENA initiative, aimed at producing advanced AI safety researchers.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <h3>Quantitative Junior Analyst</h3>
+          <span class="org">Quant Alpha, BU Finance Club</span>
+        </div>
+        <span class="date">Spring 2025</span>
+      </div>
+      <ul>
+        <li>Conducted financial data analysis and modeling with a focus on quantitative trading strategies.</li>
+        <li>Collaborated with a team to evaluate investment opportunities using statistical and machine learning techniques.</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <h3>Transformer from Scratch: Embedding-Based POS Prediction</h3>
+          <span class="org">Independent Project</span>
+        </div>
+        <span class="date">2025 – 2026</span>
+      </div>
+      <p>
+        Implementing a transformer classifier from scratch in PyTorch — including self-attention and
+        encoder blocks — to predict part-of-speech tags from raw word embeddings.
+      </p>
+      <ul>
+        <li>Comparing embedding strategies via HuggingFace Transformers and Gensim to evaluate how different encoding approaches capture syntactic information.</li>
+        <li>Applying custom data cleaning and restructuring pipelines in Python to prepare a raw Kaggle dataset for downstream modeling.</li>
+      </ul>
+      <div class="project-images">
+        <img src="images/heatmap.png" alt="Attention heatmap" />
+        <img src="images/dropout.png" alt="Dropout analysis" />
+      </div>
+      <div class="tags">
+        <span>PyTorch</span><span>HuggingFace</span><span>Gensim</span><span>NLP</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <h3>Evaluation of Finetuning Techniques for Image Classification</h3>
+          <span class="org">Independent Project</span>
+        </div>
+        <span class="date">2025</span>
+      </div>
+      <p>
+        Finetuned ResNet-18 for facial expression classification, comparing full finetuning,
+        partial finetuning, and Low Rank Adaptation (LoRA) to measure the effectiveness of each approach.
+      </p>
+      <ul>
+        <li>Explored trade-offs between parameter efficiency and accuracy across finetuning strategies.</li>
+        <li>Deepened hands-on experience with PyTorch and the HuggingFace framework.</li>
+      </ul>
+      <div class="project-images">
+        <img src="images/lora.jpeg" alt="LoRA finetuning results" />
+      </div>
+      <div class="tags">
+        <span>PyTorch</span><span>HuggingFace</span><span>LoRA</span><span>Computer Vision</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <h3>Rust-Based Graph + NLP Neural Network Analysis on Wikipedia Dataset</h3>
+          <span class="org">Independent Project</span>
+        </div>
+      </div>
+      <p>
+        Built a neural network in Rust to predict link relationships between Wikipedia articles
+        using Word2Vec embeddings, with a custom graph traversal module written entirely in Rust.
+      </p>
+      <ul>
+        <li>Preprocessed data in Python (Gensim) and engineered synthetic false edges for supervised learning.</li>
+        <li>Explored embedding difference vectors as semantic similarity predictors — concluded the method was ineffective, reinforcing rigorous model evaluation habits.</li>
+      </ul>
+      <div class="project-images">
+        <img src="images/rust-screenshot.png" alt="Rust project screenshot" />
+      </div>
+      <div class="tags">
+        <span>Rust</span><span>Word2Vec</span><span>Gensim</span><span>Graph Analysis</span><span>NLP</span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h4>Languages &amp; Tools</h4>
+        <div class="tags">
+          <span>Python</span><span>SQL</span><span>Rust</span><span>R</span><span>Unix</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Libraries &amp; Frameworks</h4>
+        <div class="tags">
+          <span>PyTorch</span><span>Einops</span><span>HuggingFace</span><span>scikit-learn</span>
+          <span>MapReduce</span><span>MongoDB</span><span>Seaborn</span><span>Matplotlib</span>
+          <span>QuantConnect</span><span>SciPy</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Domains</h4>
+        <div class="tags">
+          <span>Machine Learning</span><span>AI Safety</span><span>Data Analysis</span>
+          <span>Statistical Modeling</span><span>Data Visualization</span><span>Database Management</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education">
+    <h2>Education</h2>
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <h3>Boston University</h3>
+          <span class="org">Bachelor of Science in Data Science</span>
+        </div>
+        <span class="date">Expected May 2028</span>
+      </div>
+      <ul>
+        <li>Relevant Coursework: Machine Learning, Linear Algebra, Data Mechanics, Calculus, Programming Fundamentals, Statistics</li>
+        <li>Minor in International Relations — concentration in Security and Foreign Policy</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <footer>
+    <p>Ian Dorich &mdash; Boston, MA &mdash; <a href="mailto:dorich2016@gmail.com">dorich2016@gmail.com</a></p>
+  </footer>
+
+</body>
+</html>
