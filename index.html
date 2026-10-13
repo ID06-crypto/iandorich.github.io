@@ -14,6 +14,7 @@
   <nav>
     <span class="nav-name">Ian Dorich</span>
     <ul>
+      <li><a href="#featured">Featured</a></li>
       <li><a href="#current">Current</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
@@ -40,6 +41,58 @@
       </div>
       <img src="images/pfp.jpeg" alt="Ian Dorich" class="pfp" />
     </div>
+  </section>
+
+  <!-- Featured Research -->
+  <section id="featured">
+    <h2>Featured Research</h2>
+
+    <div class="card current-card">
+      <div class="card-header">
+        <div>
+          <h3>Greater-Than in GPT-2 Small: Circuit Analysis &amp; Steering</h3>
+          <span class="org">Independent Mechanistic Interpretability Project</span>
+        </div>
+        <span class="date">2026</span>
+      </div>
+      <p>
+        Given <em>"The war started in 1732 and ended in 17"</em>, GPT-2 small puts most of its
+        probability on years greater than 32. I replicated the circuit analysis from
+        Hanna, Liu &amp; Variengien (2023) to find which heads implement this comparison, then
+        studied where the model fails at temperature 0 and whether a steering vector can fix it.
+      </p>
+      <ul>
+        <li><strong>Circuit analysis:</strong> mean-ablation attribution recovered 6 of the paper's 8 circuit heads, with head 9.1 dominant. Patching just the top-8 heads from corrupted prompts drops accuracy from 1.00 to 0.55, while 8 random heads have no effect.</li>
+        <li><strong>Failure analysis:</strong> on 1,000 prompts, 74 fail, and 61 of those simply copy the start year. Failures concentrate in years that tokenize as a single token (e.g. <em>' 365'</em>), where the circuit has no separate YY token to attend to.</li>
+        <li><strong>Steering:</strong> a vector built by mapping the target-minus-model distribution back into the residual stream with a ridge pseudoinverse fixes 82% of held-out failures, breaks only 1.5% of correct prompts, and raises overall accuracy from 0.926 to 0.972.</li>
+        <li><strong>Caveat:</strong> the vector learns a general "later year" direction rather than "greater than <em>this</em> year": it still scores well when the start year is removed, and piles probability onto 99.</li>
+      </ul>
+      <div class="figure-grid">
+        <figure>
+          <img src="images/mechinterp/03_yy_vs_predicted_heatmap.png" alt="Heatmap of predicted year versus start year" />
+          <figcaption>Predicted-year distribution by start year: a sharp edge just above YY</figcaption>
+        </figure>
+        <figure>
+          <img src="images/mechinterp/05_head_attribution.png" alt="Per-head mean ablation attribution heatmaps" />
+          <figcaption>Per-head mean ablation (KL and &Delta;PD): head 9.1 dominates</figcaption>
+        </figure>
+        <figure class="wide">
+          <img src="images/mechinterp/09_interventions.png" alt="Accuracy and probability difference under interventions" />
+          <figcaption>Interventions on held-out prompts, with 95% bootstrap CIs</figcaption>
+        </figure>
+        <figure class="wide">
+          <img src="images/mechinterp/steering_before_after.png" alt="Accuracy before and after steering" />
+          <figcaption>Steering results on held-out test failures and correct prompts, against random and cross-family controls</figcaption>
+        </figure>
+      </div>
+      <div class="hero-links project-link">
+        <a href="https://github.com/ID06-crypto/Understanding-Greater-Than-in-ChatGPT2-and-Why-is-it-Wrong-Using-Mech-Interp-Learn-a-Steering-Vector" target="_blank" rel="noopener">View on GitHub</a>
+      </div>
+      <div class="tags">
+        <span>TransformerLens</span><span>PyTorch</span><span>Mech Interp</span><span>Activation Patching</span><span>Activation Steering</span><span>GPT-2</span>
+      </div>
+    </div>
+
   </section>
 
   <!-- Currently Working On -->
