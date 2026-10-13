@@ -207,6 +207,37 @@ h4 {
   line-height: 1.8;
 }
 
+.hero-current {
+  max-width: 600px;
+  border-left: 3px solid var(--navy);
+  background: rgba(242, 236, 224, 0.7);
+  border-radius: 0 4px 4px 0;
+  padding: 0.6rem 1rem;
+  margin: -0.6rem 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.hero-current-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--army);
+}
+
+.hero-current-label::before {
+  content: '> ';
+  color: var(--army-light);
+}
+
+.hero-current-item {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
 .hero-links {
   display: flex;
   gap: 0.85rem;
