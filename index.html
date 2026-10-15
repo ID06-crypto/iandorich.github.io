@@ -125,6 +125,43 @@
       </div>
     </div>
 
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <h3>Gradient Boosting on Company Financial Statements</h3>
+          <span class="org">Independent Project</span>
+        </div>
+        <span class="date">2026</span>
+      </div>
+      <p>
+        An XGBoost regression pipeline trained on five years (2014–2018) of US company
+        fundamentals: about 22,000 company-year rows across roughly 5,000 tickers, each with
+        200+ income-statement, balance-sheet, cash-flow and valuation indicators. The model
+        predicts a company's revenue growth from the rest of its fundamentals.
+      </p>
+      <ul>
+        <li>Built a scikit-learn pipeline (<code>ColumnTransformer</code>) with mean imputation for numeric features and one-hot encoding for categorical fields such as sector, then excluded price-return columns from the features to avoid leaking outcomes.</li>
+        <li>Explored the feature space with a covariance heatmap of standardized indicators, which shows the expected blocks of highly redundant metrics (margins, per-share values, multi-year growth rates).</li>
+        <li>Ran an overfitting check by sweeping the number of boosting rounds. Training MSE collapses toward zero while validation MSE stays flat, and the analysis traced this to a heavy-tailed target (median growth about 6%, but a maximum above 40,000×) that squared error is very sensitive to.</li>
+      </ul>
+      <div class="figure-grid">
+        <figure>
+          <img src="images/finance/covariance_heatmap.png" alt="Covariance heatmap of standardized financial indicators" />
+          <figcaption>Covariance of 200+ standardized financial indicators</figcaption>
+        </figure>
+        <figure>
+          <img src="images/finance/overfitting_check.png" alt="Train and validation MSE versus number of boosting rounds" />
+          <figcaption>Train vs. validation MSE as boosting rounds increase</figcaption>
+        </figure>
+      </div>
+      <div class="hero-links project-link">
+        <a href="https://github.com/ID06-crypto/GradientBoostingFinancialDataRegression" target="_blank" rel="noopener">View on GitHub</a>
+      </div>
+      <div class="tags">
+        <span>XGBoost</span><span>scikit-learn</span><span>pandas</span><span>Financial Statements</span><span>Gradient Boosting</span><span>Seaborn</span>
+      </div>
+    </div>
+
   </section>
 
   <!-- Experience -->
