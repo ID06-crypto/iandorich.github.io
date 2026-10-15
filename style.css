@@ -381,6 +381,7 @@ h4 {
 }
 
 .figure-grid.even { grid-template-columns: 1fr 1fr; align-items: start; }
+.figure-grid.three { grid-template-columns: repeat(3, 1fr); align-items: start; }
 
 .figure-grid img {
   width: 100%;
@@ -489,6 +490,7 @@ footer a:hover { color: var(--accent); }
 
 /* Responsive */
 @media (max-width: 900px) {
+  .figure-grid.three { grid-template-columns: 1fr; }
   #experience, #projects { grid-template-columns: 1fr; }
   .skills-grid { grid-template-columns: 1fr; }
 }
@@ -500,6 +502,6 @@ footer a:hover { color: var(--accent); }
   .pfp { width: 140px; height: 140px; }
   .hero-content h1 { font-size: 2rem; }
   .card-header { flex-direction: column; }
-  .figure-grid { grid-template-columns: 1fr; }
+  .figure-grid, .figure-grid.even, .figure-grid.three { grid-template-columns: 1fr; }
   section { padding: 3.5rem 1.4rem; }
 }

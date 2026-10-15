@@ -128,37 +128,36 @@
     <div class="card">
       <div class="card-header">
         <div>
-          <h3>Gradient Boosting on Company Financial Statements</h3>
-          <span class="org">Independent Project</span>
+          <h3>Cross-Sectional Return Forecasting: Ridge + Gradient Boosting on Fundamentals</h3>
+          <span class="org">Independent Quantitative Research Project</span>
         </div>
         <span class="date">2026</span>
       </div>
       <p>
-        An XGBoost regression pipeline trained on five years (2014–2018) of US company
-        fundamentals: about 22,000 company-year rows across roughly 5,000 tickers, each with
-        200+ income-statement, balance-sheet, cash-flow and valuation indicators. The model
-        predicts a company's revenue growth from the rest of its fundamentals.
+        Using about 22,000 company-years of US financial statements (2014&ndash;2018, 200+ indicators), I tested
+        whether gradient boosting finds <strong>nonlinear</strong> signal in next-year stock returns beyond what a
+        linear model already captures.
       </p>
       <ul>
-        <li>Built a scikit-learn pipeline (<code>ColumnTransformer</code>) with mean imputation for numeric features and one-hot encoding for categorical fields such as sector, then excluded price-return columns from the features to avoid leaking outcomes.</li>
-        <li>Explored the feature space with a covariance heatmap of standardized indicators, which shows the expected blocks of highly redundant metrics (margins, per-share values, multi-year growth rates).</li>
-        <li>Ran an overfitting check by sweeping the number of boosting rounds. Training MSE collapses toward zero while validation MSE stays flat, and the analysis traced this to a heavy-tailed target (median growth about 6%, but a maximum above 40,000×) that squared error is very sensitive to.</li>
+        <li><strong>Setup:</strong> market-wide moves and inflation were removed by ranking returns and features within each year. A ridge regression captured the linear signal, and XGBoost was then trained only on the ridge&rsquo;s out-of-sample residuals, evaluated walk-forward with rank IC.</li>
+        <li><strong>Finding:</strong> no meaningful advantage from the boosted model. Mean rank IC was 0.180 for ridge + boosting versus 0.184 for ridge alone, and a simple linear second stage recovered about as much of the residual signal as boosting did.</li>
+        <li><strong>Caveat:</strong> only three out-of-sample years, and the overall IC is unrealistically high (concentrated in small-cap, loss-making stocks), so I treat this as a methods result, not a tradeable signal.</li>
       </ul>
-      <div class="figure-grid">
+      <div class="figure-grid even">
         <figure>
-          <img src="images/finance/covariance_heatmap.png" alt="Covariance heatmap of standardized financial indicators" />
-          <figcaption>Covariance of 200+ standardized financial indicators</figcaption>
+          <img src="images/finance/market_wide_moves.png" alt="Median next-year return by year, showing market-wide swings" />
+          <figcaption>Market-wide move by year, removed by ranking within year</figcaption>
         </figure>
         <figure>
-          <img src="images/finance/overfitting_check.png" alt="Train and validation MSE versus number of boosting rounds" />
-          <figcaption>Train vs. validation MSE as boosting rounds increase</figcaption>
+          <img src="images/finance/ic_by_model.png" alt="Out-of-sample rank IC by model and test year" />
+          <figcaption>Out-of-sample rank IC: ridge vs. boosting vs. stacked</figcaption>
         </figure>
       </div>
       <div class="hero-links project-link">
         <a href="https://github.com/ID06-crypto/GradientBoostingFinancialDataRegression" target="_blank" rel="noopener">View on GitHub</a>
       </div>
       <div class="tags">
-        <span>XGBoost</span><span>scikit-learn</span><span>pandas</span><span>Financial Statements</span><span>Gradient Boosting</span><span>Seaborn</span>
+        <span>XGBoost</span><span>Ridge Regression</span><span>Walk-Forward Validation</span><span>Information Coefficient</span><span>scikit-learn</span><span>pandas</span>
       </div>
     </div>
 
